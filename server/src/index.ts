@@ -1,12 +1,12 @@
 // Import required packages
-const express = require('express');
-const cors = require('cors');
-const dotenv = require('dotenv');
-const OpenAI = require('openai');
-const path = require('path');
+import express from 'express';
+import cors from 'cors';
+import dotenv from 'dotenv';
+import { OpenAI } from 'openai';
+import path from 'path';
 
 // Load environment variables
-dotenv.config({ path: path.join(__dirname, '../.env') });
+dotenv.config();
 
 // Create Express app
 const app = express();
@@ -27,8 +27,7 @@ const openai = new OpenAI({
 app.post('/api/improve-code', async (req: any, res: any) => {
   try {
     // Get code and prompt from request
-    const code = req.body.code;
-    const prompt = req.body.prompt;
+    const { code, prompt } = req.body;
 
     // Check if required fields are present
     if (!code || !prompt) {
@@ -36,21 +35,18 @@ app.post('/api/improve-code', async (req: any, res: any) => {
     }
 
     // Create messages for OpenAI
-    const messages = [
-      {
-        role: "system",
-        content: "You are a helpful code improvement assistant. Please improve the code while keeping its functionality."
-      },
-      {
-        role: "user",
-        content: `Here is the code to improve:\n${code}\n\nImprovement request: ${prompt}\n\nPlease provide the improved code with explanations.`
-      }
-    ];
-
-    // Call OpenAI API
     const response = await openai.chat.completions.create({
       model: "gpt-4",
-      messages: messages,
+      messages: [
+        {
+          role: "system" as const,
+          content: "You are a helpful code improvement assistant. Please improve the code while maintaining its functionality."
+        },
+        {
+          role: "user" as const,
+          content: `Here is the code to improve:\n${code}\n\nImprovement request: ${prompt}\n\nPlease provide the improved code with explanations.`
+        }
+      ],
       temperature: 0.7,
     });
 
