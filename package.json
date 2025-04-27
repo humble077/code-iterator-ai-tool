@@ -1,0 +1,40 @@
+{
+  "name": "code-iterator-ai-tool",
+  "version": "1.0.0",
+  "description": "AI-powered code iterator tool for game developers",
+  "main": "index.js",
+  "scripts": {
+    "start": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "cd server && npm start",
+    "client": "cd client && npm start",
+    "install-all": "npm install && cd client && npm install && cd ../server && npm install",
+    "build": "cd client && npm run build && cd ../server && npm run build",
+    "test": "cd client && npm test && cd ../server && npm test",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
+    "lint": "eslint \"**/*.{js,jsx,ts,tsx}\""
+  },
+  "dependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "devDependencies": {
+    "eslint": "^8.57.0",
+    "prettier": "^3.2.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yourusername/code-iterator-ai-tool.git"
+  },
+  "keywords": [
+    "ai",
+    "code",
+    "iterator",
+    "game-development",
+    "openai"
+  ],
+  "author": "Anshul Das",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yourusername/code-iterator-ai-tool/issues"
+  },
+  "homepage": "https://github.com/yourusername/code-iterator-ai-tool#readme"
+} 
