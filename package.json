@@ -1,7 +1,7 @@
 {
-  "name": "code-iterator-ai-tool",
+  "name": "code-iterator",
   "version": "1.0.0",
-  "description": "AI-powered code iterator tool for game developers",
+  "description": "A powerful code improvement tool built by Anshul Das",
   "main": "index.js",
   "scripts": {
     "start": "concurrently \"npm run server\" \"npm run client\"",
@@ -22,19 +22,21 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yourusername/code-iterator-ai-tool.git"
+    "url": "git+https://github.com/humble077/code-iterator.git"
   },
   "keywords": [
-    "ai",
-    "code",
-    "iterator",
-    "game-development",
-    "openai"
+    "code-improvement",
+    "development-tools",
+    "typescript",
+    "react",
+    "nodejs",
+    "express",
+    "ai-powered"
   ],
-  "author": "Anshul Das",
+  "author": "Anshul Das <humbleb777@gmail.com> (https://github.com/humble077)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/yourusername/code-iterator-ai-tool/issues"
+    "url": "https://github.com/humble077/code-iterator/issues"
   },
-  "homepage": "https://github.com/yourusername/code-iterator-ai-tool#readme"
+  "homepage": "https://github.com/humble077/code-iterator#readme"
 } 
